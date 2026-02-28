@@ -1,0 +1,14 @@
+# Ignore data bases and large files
+*.db
+*.sqlite
+
+# Ignore presentations
+*.pptx
+*.pdf
+
+# Ignore environment and IDE files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vscode/
+.idea/

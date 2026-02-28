@@ -1,0 +1,55 @@
+--- CODE ---
+print("tuned hpyerparameters :(best parameters) ",logreg_cv.best_params_)
+print("accuracy :",logreg_cv.best_score_)
+--- OUTPUT ---
+tuned hpyerparameters :(best parameters)  {'C': 0.01, 'penalty': 'l2', 'solver': 'lbfgs'}
+accuracy : 0.8464285714285713
+
+--- CODE ---
+print('Accuracy:', logreg_cv.score(X_test, Y_test))
+--- OUTPUT ---
+Accuracy: 0.8333333333333334
+
+--- CODE ---
+print("tuned hpyerparameters :(best parameters) ",svm_cv.best_params_)
+print("accuracy :",svm_cv.best_score_)
+--- OUTPUT ---
+tuned hpyerparameters :(best parameters)  {'C': np.float64(1.0), 'gamma': np.float64(0.03162277660168379), 'kernel': 'sigmoid'}
+accuracy : 0.8482142857142856
+
+--- CODE ---
+print('Accuracy:', svm_cv.score(X_test, Y_test))
+--- OUTPUT ---
+Accuracy: 0.8333333333333334
+
+--- CODE ---
+print("tuned hpyerparameters :(best parameters) ",tree_cv.best_params_)
+print("accuracy :",tree_cv.best_score_)
+--- OUTPUT ---
+tuned hpyerparameters :(best parameters)  {'criterion': 'gini', 'max_depth': 18, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 10, 'splitter': 'random'}
+accuracy : 0.875
+
+--- CODE ---
+print('Accuracy:', tree_cv.score(X_test, Y_test))
+--- OUTPUT ---
+Accuracy: 0.7777777777777778
+
+--- CODE ---
+print("tuned hpyerparameters :(best parameters) ",knn_cv.best_params_)
+print("accuracy :",knn_cv.best_score_)
+--- OUTPUT ---
+tuned hpyerparameters :(best parameters)  {'algorithm': 'auto', 'n_neighbors': 10, 'p': 1}
+accuracy : 0.8482142857142858
+
+--- CODE ---
+print('Accuracy:', knn_cv.score(X_test, Y_test))
+--- OUTPUT ---
+Accuracy: 0.8333333333333334
+
+--- CODE ---
+estimators = {'LogReg': logreg_cv.score(X_test, Y_test), 'SVM': svm_cv.score(X_test, Y_test), 'Tree': tree_cv.score(X_test, Y_test), 'KNN': knn_cv.score(X_test, Y_test)}
+best_method = max(estimators, key=estimators.get)
+print('Best method is', best_method, 'with score', estimators[best_method])
+--- OUTPUT ---
+Best method is LogReg with score 0.8333333333333334
+
